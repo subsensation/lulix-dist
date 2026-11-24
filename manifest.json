@@ -1,0 +1,15 @@
+{
+  "channel": "stable",
+  "latest": "v0.1.0-r11",
+  "releases": [
+    {
+      "tag": "v0.1.0-r11",
+      "rev": 11,
+      "date": "2026-11-24",
+      "file": "lulix-win-dist-r11.zip",
+      "bytes": 88960057,
+      "sha256": "8a19ecbab4e646298998c9705cdfbd6d38faec7c02e279a64e3cfdb677947345",
+      "notes": "Trasporto HTTP su connessione nuova per ogni chiamata; avvisi di sistema sul canale; installatore per-utente."
+    }
+  ]
+}
