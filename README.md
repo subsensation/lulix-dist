@@ -68,6 +68,9 @@ In una finestra PowerShell nuova (il PATH è stato appena cambiato):
 Chiede provider, chiave e modello. Per OpenRouter il modello è
 `deepseek/deepseek-v4.1-flash-1017`.
 
+I nove passi del setup, con cosa rispondere a ciascuno, sono in
+[SETUP.md](SETUP.md).
+
 ### 7. Collega il telefono
 
     lulix connect setup
@@ -115,6 +118,12 @@ inserire nella web app dal telefono.
 |---|---|---|---|
 | r13 | lulix-setup-r13.exe | 57.661.987 | 99ee2e1348fb33485db2690610f1921f0d967c857c278792e290a368b995b7a2 |
 | r11 | lulix-win-dist-r11.zip | 88.960.057 | 8a19ecbab4e646298998c9705cdfbd6d38faec7c02e279a64e3cfdb677947345 |
+
+## Documenti
+
+- [SETUP.md](SETUP.md) — i nove passi del setup, cosa rispondere, comandi del giorno dopo
+- [DIAGNOSI_BLOCCO_WINDOWS.md](DIAGNOSI_BLOCCO_WINDOWS.md) — cosa fare quando Windows blocca l'eseguibile
+- [manifest.json](manifest.json) — versioni, impronte e canale di aggiornamento
 
 ## Verifica
 
