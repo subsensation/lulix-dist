@@ -40,7 +40,50 @@ Apri PowerShell e incolla uno alla volta questi tre comandi.
 Se compare un evento con il percorso di `lulix.exe`, la policy è **AppLocker**
 e la regola che blocca è scritta nel messaggio dell'evento.
 
-## 2. Le soluzioni, dalla più rapida
+## 2. Cosa disattivare, in ordine
+
+Apri **Sicurezza di Windows**: menu Start, scrivi «Sicurezza di Windows», invio.
+Oppure l'icona a scudo nella barra delle applicazioni.
+
+### 2.1 SmartScreen — è quello che chiede conferma
+
+Percorso: **Controllo app e browser → Impostazioni di Protezione basata su
+reputazione → Controlla app e file**.
+
+Metti su **Disattiva**. Effetto: Windows non chiede più conferma prima di
+eseguire un programma non firmato. Non tocca l'antivirus e non abbassa la
+protezione dei file: riguarda solo l'avviso «Windows ha protetto il PC».
+
+Se dopo questo il setup parte, hai finito: puoi riaccenderlo quando vuoi.
+
+### 2.2 Smart App Control — è quello che blocca senza chiedere
+
+Percorso: **Controllo app e browser → Impostazioni Smart App Control →
+Disattiva**.
+
+Attenzione, e non è una formalità: una volta spento non si riaccende senza
+reinstallare Windows. Se il PC non è tuo, questa decisione non è tua.
+
+### 2.3 Antivirus, solo se il messaggio parla di minaccia
+
+Se dice «minaccia trovata» o «file in quarantena», non è un criterio di
+controllo: è Defender. Percorso: **Protezione dalle minacce e dai virus →
+Impostazioni di Protezione dalle minacce → Esclusioni → Aggiungi esclusione →
+Cartella**, e indica
+
+    %LOCALAPPDATA%\Programs\Lulix
+
+Poi rilancia l'installer. È una scelta consapevole: stai dichiarando di fidarti
+di quella cartella.
+
+### 2.4 Policy aziendale — non si disattiva
+
+Se nei comandi del punto 1 è risultato WDAC `2`, oppure negli eventi AppLocker
+compare il percorso di Lulix, il blocco viene da una policy scritta
+dall'amministratore della flotta. Non c'è nessuna spunta da togliere: serve
+un'eccezione, e la strada è la B qui sotto.
+
+## 3. Le soluzioni quando la disattivazione non è possibile
 
 ### A. Smart App Control attivo (primo comando = 1)
 
@@ -81,7 +124,7 @@ blocco sparisce su qualunque PC, senza intervento dell'IT. È una spesa annuale
 e richiede la verifica dell'identità del titolare. Finché non c'è, restano le
 strade A, B e C.
 
-## 3. Test rapido: è il percorso o il file?
+## 4. Test rapido: è il percorso o il file?
 
 Se hai ancora il pacchetto estratto (per esempio `C:\Users\lucky\Desktop\lulix-r11`),
 esegui da lì:
@@ -91,7 +134,7 @@ esegui da lì:
 - se **parte**, il blocco riguarda la cartella AppData: usa la soluzione C
 - se **non parte**, il blocco riguarda il programma in sé: servono A, B o D
 
-## 4. Cosa NON è
+## 5. Cosa NON è
 
 - non è il marchio «scaricato da internet»: quello si toglie con `Unblock-File`
   ed è già stato fatto dall'installer
