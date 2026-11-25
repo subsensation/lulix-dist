@@ -138,7 +138,40 @@ blocco sparisce su qualunque PC, senza intervento dell'IT. È una spesa annuale
 e richiede la verifica dell'identità del titolare. Finché non c'è, restano le
 strade A, B e C.
 
-## 4. Test rapido: è il percorso o il file?
+## 5. Errore «apertura del file in scrittura» durante l'installazione
+
+Sintomo: durante l'installazione compare
+
+    Errore nell'apertura del file in scrittura:
+    C:\Users\<nome>\AppData\Local\Programs\Lulix\<qualcosa>.dll
+
+Significa che il file esiste già e qualcuno lo sta usando, oppure che
+l'antivirus sta scandendo proprio quel file nel momento in cui l'installer
+prova a sovrascriverlo. I nomi delle librerie di runtime (`vcruntime140.dll`,
+`swiftwinsdk.dll`) sono gli stessi usati da molti malware, quindi Defender li
+controlla con particolare attenzione.
+
+Rimedio, nell'ordine:
+
+1. Premi **Interrompi** e chiudi la finestra dell'installer.
+2. In PowerShell, chiudi quello che tiene i file aperti e cancella la cartella
+   della versione precedente:
+
+       Get-Process lulix,node -ErrorAction SilentlyContinue | Stop-Process -Force
+       Remove-Item -Recurse -Force "$env:LOCALAPPDATA\Programs\Lulix" -ErrorAction SilentlyContinue
+       Test-Path "$env:LOCALAPPDATA\Programs\Lulix"
+
+   L'ultimo comando deve rispondere `False`. Se risponde `True`, un processo è
+   ancora vivo: chiudi Lulix dalla barra delle applicazioni e ripeti.
+
+3. Rilancia l'installer:
+
+       & "$env:USERPROFILE\Downloads\lulix-setup.exe"
+
+4. Se l'errore torna sullo stesso file, aggiungi l'esclusione in Defender
+   (punto 2.3) e riprova.
+
+## 6. Test rapido: è il percorso o il file?
 
 Se hai ancora il pacchetto estratto (per esempio `C:\Users\lucky\Desktop\lulix-r11`),
 esegui da lì:
