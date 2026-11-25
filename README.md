@@ -86,6 +86,13 @@ l'indirizzo e inserisci il codice.
   binario può essere bloccato lo stesso, e in quel caso serve un'esenzione
   dall'IT oppure la firma del codice
 
+### Se Windows blocca l'eseguibile
+
+Sintomo: `Un criterio di controllo dell'applicazione ha bloccato il file`.
+
+La procedura di diagnosi e le soluzioni, con i comandi da eseguire e cosa
+significa ciascun risultato, sono in [DIAGNOSI_BLOCCO_WINDOWS.md](DIAGNOSI_BLOCCO_WINDOWS.md).
+
 ## Installazione con lo zip e installa.ps1 (alternativa)
 
     Expand-Archive lulix-win-dist-r11.zip -DestinationPath lulix-r11
