@@ -1,36 +1,32 @@
 {
   "channel": "stable",
-  "latest": "v0.1.0-r13",
+  "latest": "v0.1.0-r14",
+  "generated": "2026-11-25",
   "releases": [
     {
-      "tag": "v0.1.0-r13",
-      "rev": 13,
+      "tag": "v0.1.0-r14",
       "date": "2026-11-25",
-      "file": "lulix-setup-r13.exe",
-      "kind": "setup",
-      "bytes": 57661987,
-      "sha256": "99ee2e1348fb33485db2690610f1921f0d967c857c278792e290a368b995b7a2",
-      "notes": "Installer nativo NSIS. Alla fine verifica che lulix.exe parta e, se Windows lo blocca con una policy di controllo, spiega cosa fare. Include LEGGIMI-BLOCCO.txt."
+      "file": "lulix-setup-r14.exe",
+      "bytes": 57664341,
+      "sha256": "46d2b6cac1de406877c8e063f4b87f8f68659732f52af59c43cb2f078d2608f3",
+      "kind": "installer",
+      "notes": "Estrae in una cartella nuova, sposta da parte la precedente se e bloccata, installa accanto se non puo, verifica che l eseguibile parta."
     },
     {
-      "tag": "v0.1.0-r12",
-      "rev": 12,
+      "tag": "v0.1.0-r13",
       "date": "2026-11-25",
-      "file": "lulix-setup-r11.exe",
-      "kind": "setup",
-      "bytes": 57669367,
-      "sha256": "1a2f5a57bf994abf475c0f39b1a0509e722c4db499934829d17938becd5306c6",
-      "notes": "Primo installer nativo NSIS, senza verifica finale."
+      "file": "lulix-setup-r13.exe",
+      "bytes": 57661987,
+      "sha256": "99ee2e1348fb33485db2690610f1921f0d967c857c278792e290a368b995b7a2",
+      "kind": "installer"
     },
     {
       "tag": "v0.1.0-r11",
-      "rev": 11,
       "date": "2026-11-24",
       "file": "lulix-win-dist-r11.zip",
-      "kind": "zip",
       "bytes": 88960057,
       "sha256": "8a19ecbab4e646298998c9705cdfbd6d38faec7c02e279a64e3cfdb677947345",
-      "notes": "Pacchetto completo con installa.ps1. Trasporto HTTP su connessione nuova per ogni chiamata."
+      "kind": "zip"
     }
   ]
 }

@@ -7,7 +7,7 @@ Il codice vive in un repository privato.
 
 Il pacchetto non sta fra i file di questo repository: è allegato alla release.
 
-- Installer nativo r13, con diagnostica integrata: https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r13/lulix-setup-r13.exe
+- Installer nativo r14, che si arrangia da solo: https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r14/lulix-setup-r14.exe
 - Pagina delle release: https://github.com/subsensation/lulix-dist/releases/latest
 - Se Windows blocca l'eseguibile: [DIAGNOSI_BLOCCO_WINDOWS.md](DIAGNOSI_BLOCCO_WINDOWS.md)
 - Pacchetto zip r11 con installa.ps1: https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r11/lulix-win-dist-r11.zip
@@ -29,7 +29,7 @@ Download del tuo profilo, che è sempre scrivibile. Se invece lo lanci dalla
 cartella di sistema (`C:\WINDOWS\system32`), Windows risponde «Accesso al
 percorso negato», ed è normale: lì non si scrive.
 
-    Invoke-WebRequest https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r13/lulix-setup-r13.exe -OutFile "$env:USERPROFILE\Downloads\lulix-setup.exe"
+    Invoke-WebRequest https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r14/lulix-setup-r14.exe -OutFile "$env:USERPROFILE\Downloads\lulix-setup.exe"
 
 ### 2. Verifica l'impronta
 
@@ -37,9 +37,9 @@ percorso negato», ed è normale: lì non si scrive.
 
 Deve risultare:
 
-    99EE2E1348FB33485DB2690610F1921F0D967C857C278792E290A368B995B7A2
+    46D2B6CAC1DE406877C8E063F4B87F8F68659732F52AF59C43CB2F078D2608F3
 
-e la dimensione 57.661.987 byte. Se non combacia, fermati e non eseguirlo.
+e la dimensione 57.664.341 byte. Se non combacia, fermati e non eseguirlo.
 
 ### 3. Togli il marchio «scaricato da internet»
 
@@ -55,6 +55,12 @@ fermarsi con «un criterio di controllo dell'applicazione ha bloccato il file».
 
 Si apre la finestra di installazione: Avanti, Installa, Fine. Alla fine
 propone di configurare Lulix: accetta.
+
+Da r14 l'installer non si ferma se trova una versione precedente ancora
+installata o una DLL in uso: prepara i file in una cartella nuova, sposta da
+parte la vecchia e prosegue. Non serve cancellare niente a mano, e se qualcosa
+gli impedisce di scrivere nella cartella predefinita installa accanto e te lo
+dice.
 
 Se compare l'avviso di Windows «Windows ha protetto il PC», scegli
 **Ulteriori informazioni** e poi **Esegui comunque**: il programma non è
@@ -117,6 +123,7 @@ inserire nella web app dal telefono.
 
 | Versione | File | Byte | SHA-256 |
 |---|---|---|---|
+| r14 | lulix-setup-r14.exe | 57.664.341 | 46d2b6cac1de406877c8e063f4b87f8f68659732f52af59c43cb2f078d2608f3 |
 | r13 | lulix-setup-r13.exe | 57.661.987 | 99ee2e1348fb33485db2690610f1921f0d967c857c278792e290a368b995b7a2 |
 | r11 | lulix-win-dist-r11.zip | 88.960.057 | 8a19ecbab4e646298998c9705cdfbd6d38faec7c02e279a64e3cfdb677947345 |
 
