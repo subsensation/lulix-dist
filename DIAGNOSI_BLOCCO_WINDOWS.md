@@ -58,11 +58,25 @@ Se dopo questo il setup parte, hai finito: puoi riaccenderlo quando vuoi.
 
 ### 2.2 Smart App Control — è quello che blocca senza chiedere
 
-Percorso: **Controllo app e browser → Impostazioni Smart App Control →
-Disattiva**.
+Si riconosce da questo messaggio, con il pulsante **Ok** e nient'altro:
+
+    Controllo intelligente delle app ha bloccato un'app che potrebbe non
+    essere sicura
+    Abbiamo bloccato C:\Users\<nome>\Downloads\lulix-setup.exe perché non è
+    stato possibile verificare il rispettivo server di pubblicazione
+
+«Controllo intelligente delle app» è il nome italiano di Smart App Control.
+Non c'è nessun «Esegui comunque»: o si disattiva, o non parte.
+
+Percorso: **Sicurezza di Windows → Controllo app e browser → Impostazioni
+Smart App Control** (in italiano **Controllo intelligente delle app**) →
+**Disattiva**.
 
 Attenzione, e non è una formalità: una volta spento non si riaccende senza
 reinstallare Windows. Se il PC non è tuo, questa decisione non è tua.
+
+Se la voce è grigia o non c'è, la disattivazione è imposta da una policy
+aziendale: vale il punto 2.4.
 
 ### 2.3 Antivirus, solo se il messaggio parla di minaccia
 
