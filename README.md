@@ -11,21 +11,86 @@ Il pacchetto non sta fra i file di questo repository: è allegato alla release.
 - Pagina delle release: https://github.com/subsensation/lulix-dist/releases/latest
 - Pacchetto zip r11 con installa.ps1: https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r11/lulix-win-dist-r11.zip
 
-## Ultima versione
+## Installazione su Windows, passo per passo
 
-| Versione | File | Byte | SHA-256 |
-|---|---|---|---|
-| r11 | lulix-win-dist-r11.zip | 88.960.057 | 8a19ecbab4e646298998c9705cdfbd6d38faec7c02e279a64e3cfdb677947345 |
+L'installazione è per-utente: non serve l'amministratore e non tocca cartelle
+di sistema. Non si scarica dal browser: Edge e Chrome applicano SmartScreen e,
+se l'avviso non viene confermato, il file viene cancellato. Si scarica da
+PowerShell, che non passa da quel filtro.
 
-## Installazione
+Apri PowerShell (menu Start, scrivi PowerShell) e incolla i comandi uno alla
+volta.
 
-Scarica lo zip della versione che ti serve dalla pagina Releases, poi in PowerShell:
+### 1. Vai nella cartella dei download
+
+    cd $env:USERPROFILE\Downloads
+
+### 2. Scarica l'installer
+
+    Invoke-WebRequest https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r12/lulix-setup-r11.exe -OutFile lulix-setup.exe
+
+### 3. Verifica l'impronta
+
+    Get-FileHash .\lulix-setup.exe -Algorithm SHA256
+
+Deve risultare:
+
+    1A2F5A57BF994ABF475C0F39B1A0509E722C4DB499934829D17938BECD5306C6
+
+e la dimensione 57.669.367 byte. Se non combacia, fermati e non eseguirlo.
+
+### 4. Togli il marchio «scaricato da internet»
+
+    Unblock-File .\lulix-setup.exe
+
+Serve perché Windows marca i file arrivati dalla rete e le policy di controllo
+delle applicazioni possono rifiutarli. Senza questo passo l'installazione può
+fermarsi con «un criterio di controllo dell'applicazione ha bloccato il file».
+
+### 5. Esegui l'installer
+
+    .\lulix-setup.exe
+
+Si apre la finestra di installazione: Avanti, Installa, Fine. Alla fine
+propone di configurare Lulix: accetta.
+
+Se compare l'avviso di Windows «Windows ha protetto il PC», scegli
+**Ulteriori informazioni** e poi **Esegui comunque**: il programma non è
+firmato digitalmente, e questo è l'unico modo finché non lo sarà.
+
+### 6. Configura il modello
+
+In una finestra PowerShell nuova (il PATH è stato appena cambiato):
+
+    lulix setup
+
+Chiede provider, chiave e modello. Per OpenRouter il modello è
+`deepseek/deepseek-v4.1-flash-1017`.
+
+### 7. Collega il telefono
+
+    lulix connect setup
+    lulix connect pair
+
+Il secondo comando stampa un indirizzo del tipo `http://192.168.1.20:8733` e un
+codice a sei cifre. Dal telefono, sulla stessa rete Wi-Fi del PC, apri
+l'indirizzo e inserisci il codice.
+
+### Cosa fa e cosa non fa
+
+- installa in `%LOCALAPPDATA%\Programs\Lulix`, senza privilegi di amministratore
+- aggiunge `lulix` al PATH dell'utente e crea le voci nel menu Start
+- copia l'interfaccia web che serve al connector per il telefono
+- la disinstallazione non cancella chiavi, conversazioni e memoria
+- non è firmato: su un PC con Smart App Control o AppLocker aziendale il
+  binario può essere bloccato lo stesso, e in quel caso serve un'esenzione
+  dall'IT oppure la firma del codice
+
+## Installazione con lo zip e installa.ps1 (alternativa)
 
     Expand-Archive lulix-win-dist-r11.zip -DestinationPath lulix-r11
     cd lulix-r11
     powershell -ExecutionPolicy Bypass -File .\installa.ps1 -Pacchetto ..\lulix-win-dist-r11.zip -Sha256Atteso 8a19ecbab4e646298998c9705cdfbd6d38faec7c02e279a64e3cfdb677947345
-
-L'installazione è per-utente: non serve l'amministratore e non tocca la cartella di sistema.
 
 Poi, in una finestra nuova:
 
@@ -36,9 +101,16 @@ Poi, in una finestra nuova:
 `setup` chiede provider e chiave; `connect pair` stampa il codice a sei cifre da
 inserire nella web app dal telefono.
 
+## Ultima versione
+
+| Versione | File | Byte | SHA-256 |
+|---|---|---|---|
+| r12 | lulix-setup-r11.exe | 57.669.367 | 1a2f5a57bf994abf475c0f39b1a0509e722c4db499934829d17938becd5306c6 |
+| r11 | lulix-win-dist-r11.zip | 88.960.057 | 8a19ecbab4e646298998c9705cdfbd6d38faec7c02e279a64e3cfdb677947345 |
+
 ## Verifica
 
 Ogni pacchetto porta la sua impronta qui sopra e nel titolo della release.
 Prima di installare confrontala:
 
-    Get-FileHash lulix-win-dist-r11.zip -Algorithm SHA256
+    Get-FileHash .\lulix-setup.exe -Algorithm SHA256
