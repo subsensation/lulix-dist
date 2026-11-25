@@ -22,17 +22,18 @@ PowerShell, che non passa da quel filtro.
 Apri PowerShell (menu Start, scrivi PowerShell) e incolla i comandi uno alla
 volta.
 
-### 1. Vai nella cartella dei download
+### 1. Scarica l'installer
 
-    cd $env:USERPROFILE\Downloads
+Un comando solo, e funziona da qualsiasi cartella: il file va nella cartella
+Download del tuo profilo, che è sempre scrivibile. Se invece lo lanci dalla
+cartella di sistema (`C:\WINDOWS\system32`), Windows risponde «Accesso al
+percorso negato», ed è normale: lì non si scrive.
 
-### 2. Scarica l'installer
+    Invoke-WebRequest https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r13/lulix-setup-r13.exe -OutFile "$env:USERPROFILE\Downloads\lulix-setup.exe"
 
-    Invoke-WebRequest https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r13/lulix-setup-r13.exe -OutFile lulix-setup.exe
+### 2. Verifica l'impronta
 
-### 3. Verifica l'impronta
-
-    Get-FileHash .\lulix-setup.exe -Algorithm SHA256
+    Get-FileHash "$env:USERPROFILE\Downloads\lulix-setup.exe" -Algorithm SHA256
 
 Deve risultare:
 
@@ -40,17 +41,17 @@ Deve risultare:
 
 e la dimensione 57.661.987 byte. Se non combacia, fermati e non eseguirlo.
 
-### 4. Togli il marchio «scaricato da internet»
+### 3. Togli il marchio «scaricato da internet»
 
-    Unblock-File .\lulix-setup.exe
+    Unblock-File "$env:USERPROFILE\Downloads\lulix-setup.exe"
 
 Serve perché Windows marca i file arrivati dalla rete e le policy di controllo
 delle applicazioni possono rifiutarli. Senza questo passo l'installazione può
 fermarsi con «un criterio di controllo dell'applicazione ha bloccato il file».
 
-### 5. Esegui l'installer
+### 4. Esegui l'installer
 
-    .\lulix-setup.exe
+    & "$env:USERPROFILE\Downloads\lulix-setup.exe"
 
 Si apre la finestra di installazione: Avanti, Installa, Fine. Alla fine
 propone di configurare Lulix: accetta.
@@ -59,7 +60,7 @@ Se compare l'avviso di Windows «Windows ha protetto il PC», scegli
 **Ulteriori informazioni** e poi **Esegui comunque**: il programma non è
 firmato digitalmente, e questo è l'unico modo finché non lo sarà.
 
-### 6. Configura il modello
+### 5. Configura il modello
 
 In una finestra PowerShell nuova (il PATH è stato appena cambiato):
 
@@ -71,7 +72,7 @@ Chiede provider, chiave e modello. Per OpenRouter il modello è
 I nove passi del setup, con cosa rispondere a ciascuno, sono in
 [SETUP.md](SETUP.md).
 
-### 7. Collega il telefono
+### 6. Collega il telefono
 
     lulix connect setup
     lulix connect pair
