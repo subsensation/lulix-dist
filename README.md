@@ -7,8 +7,9 @@ Il codice vive in un repository privato.
 
 Il pacchetto non sta fra i file di questo repository: è allegato alla release.
 
-- Ultima versione, pagina delle release: https://github.com/subsensation/lulix-dist/releases/latest
-- Download diretto del pacchetto r11: https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r11/lulix-win-dist-r11.zip
+- Installer nativo r12, un solo eseguibile senza PowerShell: https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r12/lulix-setup-r11.exe
+- Pagina delle release: https://github.com/subsensation/lulix-dist/releases/latest
+- Pacchetto zip r11 con installa.ps1: https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r11/lulix-win-dist-r11.zip
 
 ## Ultima versione
 
