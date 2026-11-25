@@ -7,8 +7,9 @@ Il codice vive in un repository privato.
 
 Il pacchetto non sta fra i file di questo repository: è allegato alla release.
 
-- Installer nativo r12, un solo eseguibile senza PowerShell: https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r12/lulix-setup-r11.exe
+- Installer nativo r13, con diagnostica integrata: https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r13/lulix-setup-r13.exe
 - Pagina delle release: https://github.com/subsensation/lulix-dist/releases/latest
+- Se Windows blocca l'eseguibile: [DIAGNOSI_BLOCCO_WINDOWS.md](DIAGNOSI_BLOCCO_WINDOWS.md)
 - Pacchetto zip r11 con installa.ps1: https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r11/lulix-win-dist-r11.zip
 
 ## Installazione su Windows, passo per passo
@@ -27,7 +28,7 @@ volta.
 
 ### 2. Scarica l'installer
 
-    Invoke-WebRequest https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r12/lulix-setup-r11.exe -OutFile lulix-setup.exe
+    Invoke-WebRequest https://github.com/subsensation/lulix-dist/releases/download/v0.1.0-r13/lulix-setup-r13.exe -OutFile lulix-setup.exe
 
 ### 3. Verifica l'impronta
 
@@ -35,9 +36,9 @@ volta.
 
 Deve risultare:
 
-    1A2F5A57BF994ABF475C0F39B1A0509E722C4DB499934829D17938BECD5306C6
+    99EE2E1348FB33485DB2690610F1921F0D967C857C278792E290A368B995B7A2
 
-e la dimensione 57.669.367 byte. Se non combacia, fermati e non eseguirlo.
+e la dimensione 57.661.987 byte. Se non combacia, fermati e non eseguirlo.
 
 ### 4. Togli il marchio «scaricato da internet»
 
@@ -112,7 +113,7 @@ inserire nella web app dal telefono.
 
 | Versione | File | Byte | SHA-256 |
 |---|---|---|---|
-| r12 | lulix-setup-r11.exe | 57.669.367 | 1a2f5a57bf994abf475c0f39b1a0509e722c4db499934829d17938becd5306c6 |
+| r13 | lulix-setup-r13.exe | 57.661.987 | 99ee2e1348fb33485db2690610f1921f0d967c857c278792e290a368b995b7a2 |
 | r11 | lulix-win-dist-r11.zip | 88.960.057 | 8a19ecbab4e646298998c9705cdfbd6d38faec7c02e279a64e3cfdb677947345 |
 
 ## Verifica

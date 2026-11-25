@@ -1,7 +1,17 @@
 {
   "channel": "stable",
-  "latest": "v0.1.0-r12",
+  "latest": "v0.1.0-r13",
   "releases": [
+    {
+      "tag": "v0.1.0-r13",
+      "rev": 13,
+      "date": "2026-11-25",
+      "file": "lulix-setup-r13.exe",
+      "kind": "setup",
+      "bytes": 57661987,
+      "sha256": "99ee2e1348fb33485db2690610f1921f0d967c857c278792e290a368b995b7a2",
+      "notes": "Installer nativo NSIS. Alla fine verifica che lulix.exe parta e, se Windows lo blocca con una policy di controllo, spiega cosa fare. Include LEGGIMI-BLOCCO.txt."
+    },
     {
       "tag": "v0.1.0-r12",
       "rev": 12,
@@ -10,7 +20,7 @@
       "kind": "setup",
       "bytes": 57669367,
       "sha256": "1a2f5a57bf994abf475c0f39b1a0509e722c4db499934829d17938becd5306c6",
-      "notes": "Installer nativo NSIS: un solo eseguibile, per-utente, senza amministratore e senza PowerShell. Contiene il pacchetto r11 e toglie il marchio internet. Non firmato."
+      "notes": "Primo installer nativo NSIS, senza verifica finale."
     },
     {
       "tag": "v0.1.0-r11",
